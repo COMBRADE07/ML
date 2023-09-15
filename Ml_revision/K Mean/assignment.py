@@ -75,6 +75,7 @@ df2 = df[df['clusters'] == 1]
 
 plt.scatter(df1.iloc[:,0],df1.iloc[:,1],color="green")
 plt.scatter(df2.iloc[:,0],df2.iloc[:,1],color="red")
+plt.scatter(model.cluster_centers_[:,0],model.cluster_centers_[:,1],marker='*',color='purple') # calcultes center for clusters
 plt.show()
 
 '''
@@ -84,4 +85,5 @@ plt.show()
     
     = with scaling
       - problem solved 
+      -result achieved
 '''
