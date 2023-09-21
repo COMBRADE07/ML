@@ -33,6 +33,7 @@ model.fit(x_train, y_train)
 print(model.score(x_test, y_test))
 
 # pca
+
 pca = PCA(.95)  # this will retain 95 % useful features
 x_pca = pca.fit_transform(x)
 print(x_pca.shape)
