@@ -17,7 +17,7 @@ df = pd.DataFrame(dataset.data,columns=dataset.feature_names)
 
 # df['target'] = dataset.target
 x = df.iloc[:,:].values
-y = pd.DataFrame(dataset.target,columns=['target'])
+y = dataset.target
 
 # scaling is very important while performing PCA
 scale = MinMaxScaler()
