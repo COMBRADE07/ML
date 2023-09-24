@@ -1,10 +1,11 @@
 '''
     Gradient descent:
+        - gradient descent used for find best fit line for training dataset
 
-        important terms:
-            - cost function>> its is used to check performance of model
-            - learning rate >> the rate of which model learn from data
-            
+    important terms:
+        - cost function>> its is used to check performance of model
+        - learning rate >> the rate of which model learn from data
+
 
 
 '''
