@@ -1,5 +1,14 @@
-import pandas as pd
+'''
+    Gradient descent:
 
+        important terms:
+            - cost function>> its is used to check performance of model
+            - learning rate >> the rate of which model learn from data
+            
+
+
+'''
+import pandas as pd
 data = pd.read_csv('data.csv')
 
 x = data.iloc[:, 1].values
