@@ -10,6 +10,7 @@
 
 '''
 import pandas as pd
+import matplotlib.pyplot as plt
 data = pd.read_csv('data.csv')
 
 x = data.iloc[:, 1].values
@@ -21,9 +22,10 @@ print("y", y)
 
 def gradient_descent(x, y):
     m = c = 0
-    iterations = 100000
+    iterations = 20
     n = len(x)
-    learning_rate = 0.0001
+    learning_rate = 0.001
+    l1= []
     for i in range(iterations):
         y_predicted = m * x + c
         cost = (1 / n) * sum([value ** 2 for value in (y - y_predicted)])
@@ -37,5 +39,16 @@ def gradient_descent(x, y):
 
         # printing each iteration
         print(f'm:{m}, c:{c}, cost:{cost}, iteration:{i}')
+        l1.append(cost)
+    print("list: ",l1)
 
+    plt.plot(range(iterations), l1)
+    plt.xlabel('Iterations')
+    plt.ylabel('Cost')
+    plt.title('Gradient Descent Convergence')
+    plt.show()
 gradient_descent(x,y)
+
+
+
+
