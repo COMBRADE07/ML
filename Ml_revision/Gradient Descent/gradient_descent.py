@@ -27,11 +27,11 @@ def gradient_descent(x, y):
     for i in range(iterations):
         y_predicted = m * x + c
         cost = (1 / n) * sum([value ** 2 for value in (y - y_predicted)])
-        # calculate derivative
+        # calculate derivative | | backward propagation step1
         md = -(2 / n) * sum(x * (y - y_predicted))
         cd = -(2 / n) * sum(y - y_predicted)
 
-        # calculate m and c values
+        # calculate m and c values | backward propagation step2
         m = m - learning_rate * md
         c = c - learning_rate * cd
 
