@@ -5,9 +5,6 @@
     important terms:
         - cost function>> its is used to check performance of model
         - learning rate >> the rate of which model learn from data
-
-
-
 '''
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -22,9 +19,9 @@ print("y", y)
 
 def gradient_descent(x, y):
     m = c = 0
-    iterations = 20
+    iterations = 1000
     n = len(x)
-    learning_rate = 0.001
+    learning_rate = 0.0001
     l1= []
     for i in range(iterations):
         y_predicted = m * x + c
@@ -47,8 +44,6 @@ def gradient_descent(x, y):
     plt.ylabel('Cost')
     plt.title('Gradient Descent Convergence')
     plt.show()
+
 gradient_descent(x,y)
-
-
-
 
