@@ -1,4 +1,5 @@
 import pandas as pd
+import re
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import LabelEncoder, StandardScaler
@@ -38,9 +39,26 @@ def extract_loc(loc):
     else:
         return loc
 
+def remove_nums(str):
+    if str:
+        text = re.findall(r'[A-Za-z]+', str)
+        t1 = ' '.join(text)
+        return t1
 
 # extracting propper locations
 df['Locality'] = df['Locality'].apply(extract_loc)
 
-# group location
-df_locations = df.groupby('Locality')['Locality'].agg('count')
+# removing numbers from locality
+df['Locality'] = df['Locality'].apply(remove_nums)
+
+loc_summarry = df.groupby('Locality')['Locality'].agg('count').sort_values(ascending=False)
+
+lessthan = loc_summarry[loc_summarry <= 5]
+
+ll = df.Locality.value_counts()
+print(ll)
+print(len(lessthan))
+
+# update dataframe which has less than 5 count
+df.Locality = df.Locality.apply(lambda x: 'other' if x in lessthan else x)
+print(df.head())
