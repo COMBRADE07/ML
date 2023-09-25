@@ -29,7 +29,7 @@ df.Furnishing = df.Furnishing.fillna(method='ffill')
 print(df.isna().sum())
 
 
-# step 4.
+# step 4. Performing necessary operation on data
 # print(df.groupby('Locality')['Locality'].agg('count'))
 
 def extract_loc(loc):
@@ -39,11 +39,13 @@ def extract_loc(loc):
     else:
         return loc
 
+
 def remove_nums(str):
     if str:
         text = re.findall(r'[A-Za-z]+', str)
         t1 = ' '.join(text)
         return t1
+
 
 # extracting propper locations
 df['Locality'] = df['Locality'].apply(extract_loc)
@@ -51,13 +53,12 @@ df['Locality'] = df['Locality'].apply(extract_loc)
 # removing numbers from locality
 df['Locality'] = df['Locality'].apply(remove_nums)
 
+# replace locality count whoes count is less than 5.
 loc_summarry = df.groupby('Locality')['Locality'].agg('count').sort_values(ascending=False)
-
 lessthan = loc_summarry[loc_summarry <= 5]
-
 ll = df.Locality.value_counts()
-print(ll)
-print(len(lessthan))
+# print(ll)
+# print(len(lessthan))
 
 # update dataframe which has less than 5 count
 df.Locality = df.Locality.apply(lambda x: 'other' if x in lessthan else x)
