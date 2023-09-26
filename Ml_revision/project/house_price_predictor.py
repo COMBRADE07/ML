@@ -20,13 +20,13 @@ print(df.groupby('Furnishing')['Status'].agg('count'))
 df = df.drop(['Parking', 'Status', 'Transaction', 'Type', 'Per_Sqft'], axis=1)
 
 # step 3. Checking for Null values and fill them with mean
-print(df.isna().sum())
+# print(df.isna().sum())
 mean_bathroom = df.Bathroom.mean()
 # filling bathroom value with mean
 df['Bathroom'] = df['Bathroom'].fillna(mean_bathroom)
-print(df.Furnishing.value_counts())
+# print(df.Furnishing.value_counts())
 df.Furnishing = df.Furnishing.fillna(method='ffill')
-print(df.isna().sum())
+# print(df.isna().sum())
 
 
 # step 4. Performing necessary operation on data
@@ -62,4 +62,6 @@ ll = df.Locality.value_counts()
 
 # update dataframe which has less than 5 count
 df.Locality = df.Locality.apply(lambda x: 'other' if x in lessthan else x)
-print(df.head())
+df.Locality.value_counts()
+
+
