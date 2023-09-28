@@ -64,4 +64,3 @@ ll = df.Locality.value_counts()
 df.Locality = df.Locality.apply(lambda x: 'other' if x in lessthan else x)
 df.Locality.value_counts()
 
-
