@@ -63,4 +63,3 @@ ll = df.Locality.value_counts()
 # update dataframe which has less than 5 count
 df.Locality = df.Locality.apply(lambda x: 'other' if x in lessthan else x)
 df.Locality.value_counts()
-
