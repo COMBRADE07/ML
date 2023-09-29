@@ -32,6 +32,7 @@ df.Furnishing = df.Furnishing.fillna(method='ffill')
 # step 4. Performing necessary operation on data
 # print(df.groupby('Locality')['Locality'].agg('count'))
 
+# this function will extract exact location
 def extract_loc(loc):
     tokens = loc.split(' ')
     if len(tokens) > 3:
@@ -40,6 +41,7 @@ def extract_loc(loc):
         return loc
 
 
+# this function will remove number from locality string
 def remove_nums(str):
     if str:
         text = re.findall(r'[A-Za-z]+', str)
@@ -62,4 +64,5 @@ ll = df.Locality.value_counts()
 
 # update dataframe which has less than 5 count
 df.Locality = df.Locality.apply(lambda x: 'other' if x in lessthan else x)
-df.Locality.value_counts()
+
+
