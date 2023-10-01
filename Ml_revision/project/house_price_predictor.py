@@ -32,6 +32,7 @@ df.Furnishing = df.Furnishing.fillna(method='ffill')
 # step 4. Performing necessary operation on data
 # print(df.groupby('Locality')['Locality'].agg('count'))
 
+
 # this function will extract exact location
 def extract_loc(loc):
     tokens = loc.split(' ')
@@ -62,6 +63,17 @@ ll = df.Locality.value_counts()
 # print(ll)
 # print(len(lessthan))
 
+print(df.columns)
+
 # update dataframe which has less than 5 count
 df.Locality = df.Locality.apply(lambda x: 'other' if x in lessthan else x)
 
+# checking for outliers
+columns = ['Area', 'BHK', 'Bathroom', 'Price']
+for column in columns:
+    plt.subplot(3, 2, df.columns.get_loc(column) + 1)
+    sns.boxplot(data=df[column])
+    plt.title(f'Box Plot for {column}')
+plt.show()
+
+# fixing outlier

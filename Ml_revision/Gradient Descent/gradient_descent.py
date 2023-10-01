@@ -25,7 +25,7 @@ def gradient_descent(x, y):
     l1= []
     for i in range(iterations):
         y_predicted = m * x + c
-        cost = (1 / n) * sum([value ** 2 for value in (y - y_predicted)])
+        cost = (1 / n) * sum([value ** 2 for value in (y - y_predicted)]) # here i use mse
         # calculate derivative | | backward propagation step1
         md = -(2 / n) * sum(x * (y - y_predicted))
         cd = -(2 / n) * sum(y - y_predicted)
