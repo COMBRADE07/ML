@@ -6,8 +6,8 @@
 
 
     # Variance:
-    - variance is a measurement of how accurately a model
-      can capture a pattern in testing dataset
+    - it's a measure of the model's sensitivity
+      to changes in the training data.
     - test error
 
 
