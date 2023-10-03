@@ -5,7 +5,7 @@
         label data contains output tagged with it.
 
       - Types:
-            a] Regression
+            a] Regression : used for predict the continuous value for example predict score,marks etc.
             b] Classification
 
 '''
