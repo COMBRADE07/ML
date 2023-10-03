@@ -4,6 +4,8 @@
       - In supervised machine learning model are trained using label data,
         label data contains output tagged with it.
 
-
+      - Types:
+            a] Regression
+            b] Classification
 
 '''
