@@ -6,6 +6,7 @@
 
       - Types:
             a] Regression : used for predict the continuous value for example predict score,marks etc.
-            b] Classification
+            b] Classification : used for predict categorical values for example loan approval has only two categories  yes or no like that
+            
 
 '''
