@@ -6,3 +6,4 @@ df = pd.read_csv('Dataset.csv')
 import matplotlib.pyplot as plt
 
 df.head()
+df.describe()
