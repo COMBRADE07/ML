@@ -2,7 +2,7 @@ import pandas as pd
 import re
 import matplotlib.pyplot as plt
 import seaborn as sns
-from sklearn.preprocessing import LabelEncoder, StandardScaler
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression, LogisticRegression, Lasso, Ridge
 
@@ -70,10 +70,40 @@ df.Locality = df.Locality.apply(lambda x: 'other' if x in lessthan else x)
 
 # checking for outliers
 columns = ['Area', 'BHK', 'Bathroom', 'Price']
-for column in columns:
-    plt.subplot(3, 2, df.columns.get_loc(column) + 1)
-    sns.boxplot(data=df[column])
-    plt.title(f'Box Plot for {column}')
-plt.show()
-
+def check_outliers(columns):
+    for column in columns:
+        plt.subplot(3, 2, df.columns.get_loc(column) + 1)
+        sns.boxplot(data=df[column])
+        plt.title(f'Box Plot for {column}')
+    plt.show()
+# check_outliers(columns)
 # fixing outlier
+
+def remove_outliers(df):
+    df1 = df.select_dtypes(include=['number'])  # for numbers
+    df2 = df.select_dtypes(exclude=['number'])  # for categoricalcolumns
+#     here we used IQR method
+    ll = 0.25
+    ul = 0.75
+
+    Q1 = df1.quantile(q=ll)
+    Q3 = df1.quantile(q=ul)
+    IQR = Q3-Q1
+
+    lb = Q1-1.5*IQR
+    ub = Q3+1.5*IQR
+    df1 = df1[(df1>=lb) & (df1<=ub)]
+    df = pd.concat([df1,df2],axis=1)
+    return df
+
+df = remove_outliers(df)
+print(df.head())
+# check_outliers(columns)
+
+def onehot_encoder(df):
+    encoder = OneHotEncoder()
+    x = encoder.fit_transform(df[['Furnishing','Locality']])
+    return x
+
+x = onehot_encoder(df)
+print(x)

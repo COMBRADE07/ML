@@ -1,15 +1,12 @@
-import re
 import pandas as pd
 
-def remove_nums(str):
-    if str:
-        text = re.findall(r'[A-Za-z]+', str)
-        t1 = ' '.join(text)
-        return t1
+from sklearn.preprocessing import OneHotEncoder
 
+onehot = OneHotEncoder()
 
+df = pd.read_csv('cleaned.csv')
+print(df.head())
+print(df.Locality)
 
-s = 'hello rhuy55ik this is, 35'
-print(s.isalnum())
-x = remove_nums(s)
-print(x)
+dummies = pd.get_dummies(df.Locality)
+print(dummies.head())
