@@ -100,5 +100,5 @@ x = remove_outliers(df)
 print(x.head())
 
 one = OneHotEncoder()
-z = one.fit_transform(df.Furnishing)
+z = one.fit_transform([df.Furnishing])
 print(z)
