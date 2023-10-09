@@ -99,6 +99,6 @@ def remove_outliers(df):
 x = remove_outliers(df)
 print(x.head())
 
-one = OneHotEncoder()
-z = one.fit_transform([df.Furnishing])
+one = OneHotEncoder(sparse_output=False)
+z = one.fit_transform(df[['Furnishing']])
 print(z)
