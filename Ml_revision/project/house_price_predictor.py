@@ -21,7 +21,7 @@ df.groupby('Furnishing')['Status'].agg('count')
 df = df.drop(['Parking', 'Status', 'Transaction', 'Type', 'Per_Sqft'], axis=1)
 
 # step 3. Checking for Null values and fill them with mean
-df.isna().sum()
+print(df.isna().sum())
 mean_bathroom = df.Bathroom.mean()
 # filling bathroom value with mean
 df['Bathroom'] = df['Bathroom'].fillna(mean_bathroom)
@@ -86,8 +86,8 @@ def check_outliers(columns):
 
 def remove_outliers(df):
     df1 = df.select_dtypes(include=['number'])  # for numbers
-    df2 = df.select_dtypes(exclude=['number'])  # for categoricalcolumns
-    #     here we used IQR method
+    df2 = df.select_dtypes(exclude=['number'])  # categoricalcolumns
+    #  here we used IQR method
     ll = 0.25
     ul = 0.75
 
