@@ -76,4 +76,4 @@ for mn,mp in model_params.items():
     })
 
 sc = pd.DataFrame(data=score,columns=['model','best_score','best_params'])
-print(sc)
+print(sc.head())
