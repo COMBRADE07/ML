@@ -112,15 +112,19 @@ print(df2.head())
 df3 = df2.copy()
 # df3['Area','BHK','Bathroom'] = df1['Area','BHK','Bathroom']
 print(df3.columns)
+print(df3.isna().sum())
 
-# # extracting x and y
-# x = df1.drop('Price', axis='columns')
-# y = df1.Price
+# extracting x and y
+x = df1.drop('Price', axis='columns')
+y = df1.Price
 #
 # # splitting data into training and testing
-# x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.25,random_state=0)
-# print(len(x_train))
-# print(x_train)
-#
-#
+x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.25,random_state=0)
+print(len(x_train))
+print(x_train)
+
+
+lr = LinearRegression()
+lr.fit(x_train,y_train)
+print(lr.score(x_test,y_test))
 #
