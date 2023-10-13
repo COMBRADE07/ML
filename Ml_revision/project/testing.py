@@ -223,3 +223,4 @@ print(sc.head())
 # print(lr.score(x_test,y_test))
 
 
+
