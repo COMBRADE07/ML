@@ -221,6 +221,3 @@ print(sc.head())
 # lr.fit(x_train,y_train)
 
 # print(lr.score(x_test,y_test))
-
-
-
