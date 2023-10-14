@@ -10,6 +10,7 @@ from sklearn.linear_model import LinearRegression, LogisticRegression, Lasso, Ri
 # load dataset
 df = pd.read_csv('MagicBricks.csv')
 
+
 # step 1. understand the data
 print(df.head())
 df.columns
