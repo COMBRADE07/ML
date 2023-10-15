@@ -7,3 +7,4 @@ import matplotlib.pyplot as plt
 
 df.head()
 df.describe()
+df.info()
