@@ -16,3 +16,10 @@ day = date_time_obj.day
 print("Year:", year)
 print("Month:", month)
 print("Day:", day)
+
+
+
+
+
+
+
