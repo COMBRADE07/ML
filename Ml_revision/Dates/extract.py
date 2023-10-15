@@ -15,11 +15,5 @@ day = date_time_obj.day
 # Print the extracted features
 print("Year:", year)
 print("Month:", month)
-print("Day:", day)
-
-
-
-
-
 
 
